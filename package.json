@@ -1,0 +1,22 @@
+{
+  "name": "aikohero",
+  "version": "1.0.0",
+  "description": "Librería de Heros automatizada",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuacba08/AikoHero.git"
+  },
+  "author": "aikodev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshuacba08/AikoHero/issues"
+  },
+  "homepage": "https://github.com/joshuacba08/AikoHero#readme",
+  "dependencies": {
+    "typescript": "4.8.4"
+  }
+}
