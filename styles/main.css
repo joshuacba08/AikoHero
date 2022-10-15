@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.aiko-hero{
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  height: 90vh;
+  position: relative;
+}
+
+.aiko-hero-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  min-width: 100vw;
+  position: relative;
+  transition: all 450ms ease-in-out;
+  left: 0
+}
+
+.aiko-hero__hero-bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(1px) brightness(90%);
+}
+
+.aiko-hero__info{
+  position: relative;
+  padding: 10px 15px;
+}
+
+.aiko-hero__info .aiko-hero-info__title{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.aiko-hero__info .aiko-hero-info__subtitle{
+  text-align: center;
+  font-size: 1.2rem;
+}
+
