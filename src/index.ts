@@ -1,9 +1,4 @@
-interface Hero{
-  id: number,
-  title: string,
-  subtitle: string,
-  image: string
-}
+import { Hero } from './interface/hero.models';
 
 const heroData:Hero[] = [
   {
@@ -29,58 +24,40 @@ const heroData:Hero[] = [
   },
 ];
 
-
-window.addEventListener('load', () => {
-  const aikoHero = document.getElementById('aikohero'); //<div id="aikohero"></div>
-
-  const createHeroItem = (hero:Hero) => {
-    const heroContainer = document.createElement('div'); // <div></div>
-    const bgImg = document.createElement('div'); // <div></div>
-    const info = document.createElement('div'); // <div></div>
-
-    aikoHero?.appendChild(heroContainer);
-    heroContainer.appendChild(bgImg);
-    heroContainer.appendChild(info);
-
-    aikoHero?.classList.add('aiko-hero');
-    heroContainer.classList.add('aiko-hero-container');
-    bgImg.classList.add('aiko-hero__hero-bg');
-    bgImg.style.backgroundImage = `url(${hero.image})`;
-
-    info.classList.add('aiko-hero__info');
-    info.innerHTML = `
-      <h1 class="aiko-hero-info__title">${hero.title}</h1>
-      <p class="aiko-hero-info__subtitle">${hero.subtitle}</p>
-    `
-  };
-
-  const changeHero = (i:number) => {
-
-    const heroContainers = Array.from(document.getElementsByClassName('aiko-hero-container'));
-    heroContainers.forEach( (el:any) =>{
-        el.style.left = `${i}00vw`
-    })
+class AikoHero {
+  hero:Hero[] = [];
+  limit:number = 6;
+  currentHero: number = 0;
+  constructor(){
+    // completar el constructor
   }
 
+  createHero( hero: Hero ){
+    // completar el método para crear un hero
+  }
 
-  //ejecuciones inmediatas
-  heroData.forEach( (element:Hero) => {
-    createHeroItem(element);
-  });
+  createNHeros( qty: number, arrayHeros:Hero[] ){
+    // completar el método para crear una cantidad de heros
+  }
 
-  let count = 0;
-  setInterval(()=>{
+  lauchAutomaticInterval(){
+    // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
 
-    changeHero(count);
-    if(Math.abs(count) + 1 < heroData.length){
-      count += -1;
-    }else{
-      count = 0;
-    }
+  }
 
-  },3000);
+  changeHero(index:number){
+    // completar el método que cambia de hero modificando la regla de css "left"
+  }
 
+  createControls(){
+    // Aún no lo vimos en las sesiones pero deberíamos crear una función que cree los botones para controlar el pasaje de los heros.
+  }
 
+  heroDestroy(){
+    // El hero se remueve del DOM y ya no se muestra
+  }
 
+}
 
-});
+export default AikoHero;
+
