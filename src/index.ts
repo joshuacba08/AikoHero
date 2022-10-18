@@ -57,7 +57,7 @@ window.addEventListener('load', () => {
   const changeHero = (i:number) => {
 
     const heroContainers = Array.from(document.getElementsByClassName('aiko-hero-container'));
-    heroContainers.forEach( (el) =>{
+    heroContainers.forEach( (el:any) =>{
         el.style.left = `${i}00vw`
     })
   }
