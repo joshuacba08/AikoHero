@@ -79,8 +79,8 @@ class AikoHero {
     const buttonLeft = document.createElement('button');
     const buttonRight = document.createElement('button');
 
-    buttonsContainer.appendChild()
-
+    buttonsContainer.appendChild(buttonLeft);
+    buttonsContainer.appendChild(buttonRight);
 
   }
 
