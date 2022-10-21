@@ -1,4 +1,17 @@
-import { Hero } from './interface/hero.models';
+// Estas son las interfaces que tenemos al momento de acuerdo a las entidades que establecimos en nuestro dashboard.
+interface Hero{
+  id: number,
+  title: string,
+  subtitle: string,
+  image: string,
+  action?:Action
+}
+
+
+interface Action{
+  path:string,
+  option:string
+}
 
 const heroData:Hero[] = [
   {
@@ -28,12 +41,36 @@ class AikoHero {
   hero:Hero[] = [];
   limit:number = 6;
   currentHero: number = 0;
-  constructor(){
-    // completar el constructor
+  idContainer: string;
+  nodeContainer: HTMLElement | null;
+
+  constructor(arrayHeros: Hero[], idContainer: string){
+    this.hero=arrayHeros;
+    this.idContainer=idContainer;
+    this.nodeContainer= document.getElementById(idContainer)
+    this.nodeContainer?.classList.add('aiko-hero')
+
   }
 
   createHero( hero: Hero ){
     // completar el método para crear un hero
+
+    const heroContainer = document.createElement('div'); // <div></div>
+    const bgImg = document.createElement('div'); // <div></div>
+    const info = document.createElement('div'); // <div></div>
+
+    this.nodeContainer?.appendChild(heroContainer);
+    heroContainer.appendChild(bgImg);
+    heroContainer.appendChild(info);
+    heroContainer.classList.add('aiko-hero-container')
+    bgImg.classList.add('aiko-hero__hero-bg')
+    bgImg.style.backgroundImage = `url(${hero.image})`;
+    info.classList.add('aiko-hero__info')
+    info.innerHTML = `
+      <h1 class="aiko-hero-info__title">${hero.title}</h1>
+      <p class="aiko-hero-info__subtitle">${hero.subtitle}</p>
+      `
+
   }
 
   createNHeros( qty: number, arrayHeros:Hero[] ){
@@ -64,7 +101,11 @@ class AikoHero {
     // El hero se remueve del DOM y ya no se muestra
   }
 
+
 }
 
-export default AikoHero;
+const data = heroData[1];
+const hero= new AikoHero(heroData, "aikohero");
+hero.createHero(data)
+
 
