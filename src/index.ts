@@ -51,6 +51,13 @@ class AikoHero {
 
   createControls(){
     // Aún no lo vimos en las sesiones pero deberíamos crear una función que cree los botones para controlar el pasaje de los heros.
+    const buttonsContainer = document.createElement('div');
+    const buttonLeft = document.createElement('button');
+    const buttonRight = document.createElement('button');
+
+    buttonsContainer.appendChild()
+
+
   }
 
   heroDestroy(){
