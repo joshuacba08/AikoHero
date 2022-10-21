@@ -28,8 +28,15 @@ class AikoHero {
   hero:Hero[] = [];
   limit:number = 6;
   currentHero: number = 0;
-  constructor(){
-    // completar el constructor
+  idContainer: string;
+  nodeContainer: HTMLElement;
+
+  constructor(arrayHeros: [], idContainer: string){
+    this.hero=arrayHeros;
+    this.idContainer=idContainer;
+    this.nodeContainer= document.getElementById(idContainer)
+
+
   }
 
   createHero( hero: Hero ){
