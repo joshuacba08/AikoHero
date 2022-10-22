@@ -101,6 +101,10 @@ class AikoHero {
     });
   }
 
+  currentHeroViewer(){
+
+  }
+
   heroDestroy() {
     // El hero se remueve del DOM y ya no se muestra
   }
@@ -109,7 +113,6 @@ class AikoHero {
 const data = heroData[1];
 const hero = new AikoHero(heroData, 'aikohero');
 hero.createControls();
-hero.createHero(data);
 hero.createNHeros();
 
 console.log(hero);
