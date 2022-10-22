@@ -56,3 +56,36 @@ html, body{
   font-size: 1.2rem;
 }
 
+.aiko-hero__buttonControls {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: none;
+  transition: all 250ms ease-in-out;
+  z-index: 99;
+}
+
+.aiko-hero__buttonControls:hover {
+  background-color: #ffffff44;
+}
+
+.aiko-hero__buttonControls:nth-child(1){
+  left: 15px;
+  bottom: calc(50% - 30px);
+  padding-left: 15px;
+
+}
+
+.aiko-hero__buttonControls:nth-child(2){
+  right: 15px;
+  bottom: calc(50% - 30px);
+
+}
+
