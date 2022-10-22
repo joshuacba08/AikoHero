@@ -1,7 +1,112 @@
-window.addEventListener('load',() => {
+import { Hero } from './interface/hero.models';
 
-  const aikoHero = document.getElementById('aikohero');
+const heroData:Hero[] = [
+  {
+    id:1,
+    title: 'Lorem Ipsum',
+    subtitle: 'Lorem Ipsum dolor amed...',
+    image:
+      'https://images.pexels.com/photos/1982485/pexels-photo-1982485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+  {
+    id:2,
+    title: 'Lorem Ipsum',
+    subtitle: 'Lorem Ipsum dolor amed...',
+    image:
+      'https://images.pexels.com/photos/7034524/pexels-photo-7034524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+  {
+    id:3,
+    title: 'Lorem Ipsum',
+    subtitle: 'Lorem Ipsum dolor amed...',
+    image:
+      'https://images.pexels.com/photos/7034523/pexels-photo-7034523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+];
 
-  console.log(aikoHero);
+class AikoHero {
+  hero:Hero[] = [];
+  limit:number = 6;
+  currentHero: number = 0;
+  idContainer: string;
+  nodeContainer: HTMLElement | null;
 
-});
+  constructor(arrayHeros: Hero[], idContainer: string){
+    this.hero=arrayHeros;
+    this.idContainer=idContainer;
+    this.nodeContainer= document.getElementById(idContainer)
+    this.nodeContainer?.classList.add('aiko-hero')
+
+  }
+
+  createHero( hero: Hero ){
+    // completar el método para crear un hero
+
+    const heroContainer = document.createElement('div'); // <div></div>
+    const bgImg = document.createElement('div'); // <div></div>
+    const info = document.createElement('div'); // <div></div>
+
+    this.nodeContainer?.appendChild(heroContainer);
+    heroContainer.appendChild(bgImg);
+    heroContainer.appendChild(info);
+    heroContainer.classList.add('aiko-hero-container')
+    bgImg.classList.add('aiko-hero__hero-bg')
+    bgImg.style.backgroundImage = `url(${hero.image})`;
+    info.classList.add('aiko-hero__info')
+    info.innerHTML = `
+      <h1 class="aiko-hero-info__title">${hero.title}</h1>
+      <p class="aiko-hero-info__subtitle">${hero.subtitle}</p>
+      `
+
+  }
+
+  createNHeros( qty: number, arrayHeros:Hero[] ){
+    // completar el método para crear una cantidad de heros
+  }
+
+  lauchAutomaticInterval(){
+    // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
+
+  }
+
+  changeHero(index:number){
+    // completar el método que cambia de hero modificando la regla de css "left"
+  }
+
+  createControls(){
+    // Aún no lo vimos en las sesiones pero deberíamos crear una función que cree los botones para controlar el pasaje de los heros.
+    const buttonLeft = document.createElement('button');
+    const buttonRight = document.createElement('button');
+
+    this.nodeContainer?.appendChild(buttonLeft);
+    this.nodeContainer?.appendChild(buttonRight);
+
+    buttonLeft.classList.add('aiko-hero__buttonControls');
+    buttonRight.classList.add('aiko-hero__buttonControls');
+
+    buttonLeft.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M20 44 0 24 20 4l2.8 2.85L5.65 24 22.8 41.15Z"/></svg>'
+    buttonRight.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m15.2 43.9-2.8-2.85L29.55 23.9 12.4 6.75l2.8-2.85 20 20Z"/></svg>'
+
+    buttonLeft.addEventListener('click',() => {
+      console.log('atras');
+    })
+
+    buttonRight.addEventListener('click',() => {
+      console.log('adelante');
+    })
+
+  }
+
+  heroDestroy(){
+    // El hero se remueve del DOM y ya no se muestra
+  }
+
+
+}
+
+const data = heroData[1];
+const hero= new AikoHero(heroData, "aikohero");
+hero.createControls();
+hero.createHero(data);
+
+
