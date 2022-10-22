@@ -61,7 +61,7 @@ class AikoHero {
   createNHeros() {
     if (this.hero.length <= this.limit) {
       this.hero.forEach((heroItem) => {
-        return this.createHero(heroItem);
+        this.createHero(heroItem);
       });
     } else {
       console.error('You have reached the limit');
