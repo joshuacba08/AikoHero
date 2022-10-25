@@ -61,7 +61,7 @@ class AikoHero {
     info.innerHTML = `
       <h1 class="aiko-hero-info__title">${hero.title}</h1>
       <p class="aiko-hero-info__subtitle">${hero.subtitle}</p>
-      <input type="button" class="aiko-hero-info__buttonAction" onclick="location.href='${hero.action?.path}';" value="${hero.action?.option}"/>
+      <button class="aiko-hero-info__buttonAction" onclick="location.href='${hero.action?.path}';">${hero.action?.option}</button>
       `;
   }
 
