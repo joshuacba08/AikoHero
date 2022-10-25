@@ -60,6 +60,9 @@ html, body{
   text-transform: uppercase;
   text-align: center;
   box-sizing: border-box;
+  display: block;
+margin: 15px auto;
+border: none;
   cursor: pointer;
 color: white;
 margin-top: 15px;
