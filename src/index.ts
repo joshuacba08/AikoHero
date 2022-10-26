@@ -109,7 +109,20 @@ class AikoHero {
   }
 
   currentHeroViewer(){
+    let buttonDiv = document.createElement('div');
+    this.nodeContainer?.appendChild(buttonDiv);
+    buttonDiv.classList.add('aiko-hero__button-flex');
+    let buttonView;
 
+    for (let i=1; i<=this.hero.length; i++){
+      buttonView = document.createElement('button');
+      buttonDiv.appendChild(buttonView);
+      buttonView.classList.add('aiko-hero__button-viewer');
+
+      if (i ===this.currentHero) {
+        buttonView.classList.add('aiko-hero__button-this');
+      }
+    }
   }
 
   heroDestroy() {
@@ -121,5 +134,5 @@ const data = heroData[1];
 const hero = new AikoHero(heroData, 'aikohero');
 hero.createControls();
 hero.createNHeros();
-
+hero.currentHeroViewer();
 console.log(hero);
