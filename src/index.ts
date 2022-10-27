@@ -114,7 +114,7 @@ class AikoHero {
     buttonDiv.classList.add('aiko-hero__button-flex');
     let buttonView;
 
-    for (let i=1; i<=this.hero.length; i++){
+    for (let i=0; i<this.hero.length; i++){
       buttonView = document.createElement('button');
       buttonDiv.appendChild(buttonView);
       buttonView.classList.add('aiko-hero__button-viewer');
@@ -130,7 +130,7 @@ class AikoHero {
   }
 }
 
-const data = heroData[1];
+
 const hero = new AikoHero(heroData, 'aikohero');
 hero.createControls();
 hero.createNHeros();
