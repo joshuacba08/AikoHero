@@ -77,6 +77,15 @@ class AikoHero {
 
   lauchAutomaticInterval() {
     // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
+      setInterval (() => {
+      this.changeHero(this.currentHero)
+      this.currentHero++;
+
+      if(this.currentHero >= heroData.length) {
+        this.currentHero = 0;
+      }
+    } , 3000)
+
   }
 
   changeHero(index: number) {
