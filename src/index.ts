@@ -1,4 +1,5 @@
-import { Hero } from './interface/hero.models';
+import { Hero, Action } from './interface/hero.models';
+
 
 const heroData: Hero[] = [
   {
@@ -7,7 +8,11 @@ const heroData: Hero[] = [
     subtitle: 'Lorem Ipsum dolor amed...',
     image:
       'https://images.pexels.com/photos/1982485/pexels-photo-1982485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  },
+    action:{
+      path:'https://images.pexels.com/photos/1982485/pexels-photo-1982485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      option:'Imagen'
+    }
+    },
   {
     id: 2,
     title: 'Lorem Ipsum',
@@ -23,6 +28,7 @@ const heroData: Hero[] = [
       'https://images.pexels.com/photos/7034523/pexels-photo-7034523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   },
 ];
+
 
 class AikoHero {
   hero: Hero[] = [];
@@ -55,6 +61,7 @@ class AikoHero {
     info.innerHTML = `
       <h1 class="aiko-hero-info__title">${hero.title}</h1>
       <p class="aiko-hero-info__subtitle">${hero.subtitle}</p>
+      <button class="aiko-hero-info__buttonAction" onclick="location.href='${hero.action?.path}';">${hero.action?.option}</button>
       `;
   }
 
@@ -111,7 +118,20 @@ class AikoHero {
   }
 
   currentHeroViewer(){
+    let buttonDiv = document.createElement('div');
+    this.nodeContainer?.appendChild(buttonDiv);
+    buttonDiv.classList.add('aiko-hero__button-flex');
+    let buttonView;
 
+    for (let i=0; i<this.hero.length; i++){
+      buttonView = document.createElement('button');
+      buttonDiv.appendChild(buttonView);
+      buttonView.classList.add('aiko-hero__button-viewer');
+
+      if (i ===this.currentHero) {
+        buttonView.classList.add('aiko-hero__button-this');
+      }
+    }
   }
 
   heroDestroy() {
@@ -119,9 +139,9 @@ class AikoHero {
   }
 }
 
-const data = heroData[1];
+
 const hero = new AikoHero(heroData, 'aikohero');
 hero.createControls();
 hero.createNHeros();
-
+hero.currentHeroViewer();
 console.log(hero);

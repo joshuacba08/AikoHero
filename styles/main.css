@@ -56,6 +56,23 @@ html, body{
   font-size: 1.2rem;
 }
 
+.aiko-hero__info .aiko-hero-info__buttonAction{
+  text-transform: uppercase;
+  text-align: center;
+  box-sizing: border-box;
+  display: block;
+margin: 15px auto;
+border: none;
+  cursor: pointer;
+color: white;
+margin-top: 15px;
+padding: 10px 15px;
+background: #2E2E2E;
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 6px;
+}
+
 .aiko-hero__buttonControls {
   position: absolute;
   display: flex;
@@ -89,3 +106,47 @@ html, body{
 
 }
 
+.aiko-hero__buttonAction{
+  box-sizing: border-box;
+
+position: absolute;
+width: 138px;
+height: 44px;
+
+background: #2E2E2E;
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 6px;
+}
+
+
+.aiko-hero__button-viewer {
+  border-style: solid;
+  width: 2.3vh;
+  height: 2.3vh;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+  border-color: black;
+  opacity: 0.8;
+}
+
+.aiko-hero__button-this{
+  background-color:  black;
+  border-color: white;
+}
+
+.aiko-hero__button-flex {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  margin:auto;
+  max-width: 50%;
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2vh;
+}
