@@ -42,6 +42,7 @@ class AikoHero {
     this.idContainer = idContainer;
     this.nodeContainer = document.getElementById(idContainer);
     this.nodeContainer?.classList.add('aiko-hero');
+    this.lauchAutomaticInterval();
   }
 
   createHero(hero: Hero) {
@@ -79,6 +80,7 @@ class AikoHero {
     // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
       setInterval (() => {
       this.changeHero(this.currentHero)
+      console.log('current hero: ',this.currentHero)
       this.currentHero++;
 
       if(this.currentHero >= heroData.length) {
