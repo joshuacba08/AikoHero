@@ -71,10 +71,46 @@ class AikoHero {
   lauchAutomaticInterval() {
     // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
   }
+  changeHero = (i: number) => {
+    const heroContainers = Array.from(
+      document.getElementsByClassName('aiko-hero-container')
+    );
+    i++;
+    heroContainers.forEach((el: any) => {
+      el.style.left = `${i}00vw`;
+      console.log(i);
 
-  changeHero(index: number) {
-    // completar el método que cambia de hero modificando la regla de css "left"
-  }
+      if (i == 0) el.style.left = '0px';
+      if (i == 1) el.style.left = '-100vw';
+      if (i == 2) el.style.left = '-200vw';
+      if (i > 2) i = 2;
+    });
+  };
+  // completar el método que cambia de hero modificando la regla de css "left"
+  // index: number = 0;
+  // this.heroContainer.document.querySelectorAll('.aiko-hero-container')
+
+  // // const slideLeft = document.querySelector('.slideLeft');
+  // // const slideRight = document.querySelector('.slideRight');
+
+  // slideRight = () => {
+  //   this.index++;
+  //   for (let i of this.heroContainer) {
+  //     if (this.index == 0) i.style.left = '0px';
+  //     if (this.index == 1) i.style.left = '-100vw';
+  //     if (this.index == 2) i.style.left = '-200vw';
+  //     if (this.index > 2) this.index = 2;
+  //   }
+  // };
+  // slideLeft = () => {
+  //   this.index--;
+  //   for (let i of this.heroContainer) {
+  //     if (this.index == 0) i.style.left = '0px';
+  //     if (this.index == 1) i.style.left = '-740px';
+  //     if (this.index == 2) i.style.left = '-1480px';
+  //     if (this.index < 0) this.index = 2;
+  //   }
+  // };
 
   createControls() {
     // Aún no lo vimos en las sesiones pero deberíamos crear una función que cree los botones para controlar el pasaje de los heros.
@@ -84,8 +120,8 @@ class AikoHero {
     this.nodeContainer?.appendChild(buttonLeft);
     this.nodeContainer?.appendChild(buttonRight);
 
-    buttonLeft.classList.add('aiko-hero__buttonControls');
-    buttonRight.classList.add('aiko-hero__buttonControls');
+    buttonLeft.classList.add('aiko-hero__buttonControls', 'slideLeft');
+    buttonRight.classList.add('aiko-hero__buttonControls', 'slideRight');
 
     buttonLeft.innerHTML =
       '<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M20 44 0 24 20 4l2.8 2.85L5.65 24 22.8 41.15Z"/></svg>';
@@ -93,17 +129,18 @@ class AikoHero {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m15.2 43.9-2.8-2.85L29.55 23.9 12.4 6.75l2.8-2.85 20 20Z"/></svg>';
 
     buttonLeft.addEventListener('click', () => {
-      console.log('atras');
+      console.log('left click');
+
+      this.changeHero(0);
     });
 
     buttonRight.addEventListener('click', () => {
-      console.log('adelante');
+      console.log('Right click');
+      this.changeHero(1);
     });
   }
 
-  currentHeroViewer(){
-
-  }
+  currentHeroViewer() {}
 
   heroDestroy() {
     // El hero se remueve del DOM y ya no se muestra
