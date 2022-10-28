@@ -41,6 +41,11 @@ class AikoHero {
     this.nodeContainer = document.getElementById(idContainer);
     this.nodeContainer?.classList.add('aiko-hero');
     this.lauchAutomaticInterval();
+    if(this.hero.length > 1){ //Si el Array Hero es mayor a 1, se activaran los botones
+      this.createControls();
+      console.log('El array Hero es mayor a 1, se activan botones')
+    };
+
   }
 
   createHero(hero: Hero) {
@@ -153,7 +158,6 @@ class AikoHero {
 }
 
 const hero = new AikoHero(heroData, 'aikohero');
-hero.createControls();
 hero.createNHeros();
 hero.currentHeroViewer();
 console.log(hero);
