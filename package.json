@@ -4,7 +4,7 @@
   "description": "Librería de Heros automatizada",
   "main": "index.js",
   "scripts": {
-    "dev":"tsc --watch"
+    "dev": "tsc --watch"
   },
   "repository": {
     "type": "git",
