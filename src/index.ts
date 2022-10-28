@@ -40,6 +40,7 @@ class AikoHero {
     this.idContainer = idContainer;
     this.nodeContainer = document.getElementById(idContainer);
     this.nodeContainer?.classList.add('aiko-hero');
+    this.lauchAutomaticInterval();
   }
 
   createHero(hero: Hero) {
@@ -75,14 +76,14 @@ class AikoHero {
 
   lauchAutomaticInterval() {
     // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
-    setInterval(() => {
-      this.changeHero(this.currentHero);
-      this.currentHero++;
+      setInterval (() => {
+      this.changeHero(this.currentHero)
+      this.currentHero--;
 
-      if (this.currentHero >= heroData.length) {
+      if (Math.abs(this.currentHero) >= heroData.length) {
         this.currentHero = 0;
       }
-    }, 3000);
+    }, 4000);
   }
   changeHero = (i: number) => {
     const heroContainers = Array.from(
@@ -91,34 +92,8 @@ class AikoHero {
 
     heroContainers.forEach((el: any) => {
       el.style.left = `${i}00vw`;
-      console.log(i);
     });
   };
-  // completar el método que cambia de hero modificando la regla de css "left"
-  // index: number = 0;
-  // this.heroContainer.document.querySelectorAll('.aiko-hero-container')
-
-  // // const slideLeft = document.querySelector('.slideLeft');
-  // // const slideRight = document.querySelector('.slideRight');
-
-  // slideRight = () => {
-  //   this.index++;
-  //   for (let i of this.heroContainer) {
-  //     if (this.index == 0) i.style.left = '0px';
-  //     if (this.index == 1) i.style.left = '-100vw';
-  //     if (this.index == 2) i.style.left = '-200vw';
-  //     if (this.index > 2) this.index = 2;
-  //   }
-  // };
-  // slideLeft = () => {
-  //   this.index--;
-  //   for (let i of this.heroContainer) {
-  //     if (this.index == 0) i.style.left = '0px';
-  //     if (this.index == 1) i.style.left = '-740px';
-  //     if (this.index == 2) i.style.left = '-1480px';
-  //     if (this.index < 0) this.index = 2;
-  //   }
-  // };
 
   createControls() {
     // Aún no lo vimos en las sesiones pero deberíamos crear una función que cree los botones para controlar el pasaje de los heros.
@@ -137,7 +112,6 @@ class AikoHero {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m15.2 43.9-2.8-2.85L29.55 23.9 12.4 6.75l2.8-2.85 20 20Z"/></svg>';
 
     buttonLeft.addEventListener('click', () => {
-      console.log('left click');
 
       this.currentHero++;
       if (this.currentHero > 0) {
@@ -149,7 +123,6 @@ class AikoHero {
 
     buttonRight.addEventListener('click', () => {
       this.currentHero--;
-      console.log('Right click');
       if (Math.abs(this.currentHero) > this.hero.length - 1) {
         this.currentHero = 0;
       }
