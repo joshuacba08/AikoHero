@@ -78,13 +78,12 @@ class AikoHero {
     // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
       setInterval (() => {
       this.changeHero(this.currentHero)
-      console.log('current hero: ',this.currentHero)
-      this.currentHero++;
+      this.currentHero--;
 
-      if (this.currentHero >= heroData.length) {
+      if (Math.abs(this.currentHero) >= heroData.length) {
         this.currentHero = 0;
       }
-    }, 3000);
+    }, 4000);
   }
   changeHero = (i: number) => {
     const heroContainers = Array.from(
@@ -93,7 +92,6 @@ class AikoHero {
 
     heroContainers.forEach((el: any) => {
       el.style.left = `${i}00vw`;
-      console.log(i);
     });
   };
 
@@ -114,7 +112,6 @@ class AikoHero {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m15.2 43.9-2.8-2.85L29.55 23.9 12.4 6.75l2.8-2.85 20 20Z"/></svg>';
 
     buttonLeft.addEventListener('click', () => {
-      console.log('left click');
 
       this.currentHero++;
       if (this.currentHero > 0) {
@@ -126,7 +123,6 @@ class AikoHero {
 
     buttonRight.addEventListener('click', () => {
       this.currentHero--;
-      console.log('Right click');
       if (Math.abs(this.currentHero) > this.hero.length - 1) {
         this.currentHero = 0;
       }
