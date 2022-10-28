@@ -40,15 +40,21 @@ class AikoHero {
     this.idContainer = idContainer;
     this.nodeContainer = document.getElementById(idContainer);
     this.nodeContainer?.classList.add('aiko-hero');
-    this.lauchAutomaticInterval();
+
+    if(this.hero.length > 1){
+      this.createControls();
+      console.log('El array Hero es mayor a 1, se activan botones')
+      this.lauchAutomaticInterval();
+      this.currentHeroViewer();
+    };
+
   }
 
   createHero(hero: Hero) {
-    // completar el método para crear un hero
 
-    const heroContainer = document.createElement('div'); // <div></div>
-    const bgImg = document.createElement('div'); // <div></div>
-    const info = document.createElement('div'); // <div></div>
+    const heroContainer = document.createElement('div');
+    const bgImg = document.createElement('div');
+    const info = document.createElement('div');
 
     this.nodeContainer?.appendChild(heroContainer);
     heroContainer.appendChild(bgImg);
@@ -75,7 +81,6 @@ class AikoHero {
   }
 
   lauchAutomaticInterval() {
-    // completar el método que a través de un interval cambie el valor de currentHero y ejecutar el método changeHero para cambiar al hero correspondiente
       setInterval (() => {
       this.changeHero(this.currentHero)
       this.currentHero--;
@@ -96,7 +101,6 @@ class AikoHero {
   };
 
   createControls() {
-    // Aún no lo vimos en las sesiones pero deberíamos crear una función que cree los botones para controlar el pasaje de los heros.
     const buttonLeft = document.createElement('button');
     const buttonRight = document.createElement('button');
 
@@ -153,7 +157,5 @@ class AikoHero {
 }
 
 const hero = new AikoHero(heroData, 'aikohero');
-hero.createControls();
 hero.createNHeros();
-hero.currentHeroViewer();
 console.log(hero);
