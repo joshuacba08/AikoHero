@@ -151,11 +151,14 @@ class AikoHero {
     }
   }
 
-  heroDestroy() {
-    // El hero se remueve del DOM y ya no se muestra
-  }
+  heroDestroy( ){
+    while( this.nodeContainer?.lastChild ){
+       this.nodeContainer.removeChild( this.nodeContainer.lastChild)
+    }
+ }
 }
 
 const hero = new AikoHero(heroData, 'aikohero');
 hero.createNHeros();
 console.log(hero);
+//hero.heroDestroy()
