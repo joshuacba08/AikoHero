@@ -153,12 +153,13 @@ class AikoHero {
 
   heroDestroy( ){
     while( this.nodeContainer?.lastChild ){
-       this.nodeContainer.removeChild( this.nodeContainer.lastChild)
+      this.nodeContainer.removeChild( this.nodeContainer.lastChild)
     }
+    this.nodeContainer?.classList.remove('aiko-hero');
  }
 }
 
 const hero = new AikoHero(heroData, 'aikohero');
 hero.createNHeros();
 console.log(hero);
-//hero.heroDestroy()
+hero.heroDestroy()
