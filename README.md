@@ -4,8 +4,8 @@ Aiko Hero es una librería de código abierto basada en TypeScript la cual nos p
 
 
 
-- Utilización
-Se recomienda el uso de Visual Studio Code con la extensión Live Server.
+### Utilización
+Se recomienda el uso de Visual Studio Code con la extensión Live Server.  
 
 1. En el editor de código ir a la carpeta del proyecto.
 2. Desde la terminal escribir "npm run dev" para compilar el archivo.
